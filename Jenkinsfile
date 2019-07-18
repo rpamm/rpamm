@@ -2,8 +2,17 @@ pipeline {
   agent none
   stages {
     stage('finish') {
-      steps {
-        sleep 1
+      parallel {
+        stage('finish') {
+          steps {
+            sleep 1
+          }
+        }
+        stage('test') {
+          steps {
+            echo 'hello'
+          }
+        }
       }
     }
   }
