@@ -1,16 +1,49 @@
 pipeline {
   agent none
   stages {
-    stage('finish') {
+    stage('Read Email') {
       parallel {
-        stage('finish') {
+        stage('Read Email') {
           steps {
-            sleep 1
+            echo 'Reading Email Started'
           }
         }
-        stage('test') {
+        stage('Match text') {
           steps {
-            echo 'hello'
+            echo 'Text Matched'
+          }
+        }
+        stage('Move to folder') {
+          steps {
+            echo 'Moved to folder'
+          }
+        }
+      }
+    }
+    stage('Download Attachment') {
+      parallel {
+        stage('Download Attachment') {
+          steps {
+            echo 'Attachment Downloaded'
+          }
+        }
+        stage('Download Email attachment ') {
+          steps {
+            echo 'Email Attachment Downloaded'
+          }
+        }
+      }
+    }
+    stage('Format Data') {
+      parallel {
+        stage('Format Data') {
+          steps {
+            echo 'Formatting Data'
+          }
+        }
+        stage('OCR - PDF to TXT') {
+          steps {
+            echo 'Converting PDF to TXT'
           }
         }
       }
