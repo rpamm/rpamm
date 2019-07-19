@@ -46,6 +46,11 @@ pipeline {
             echo 'Converting PDF to TXT'
           }
         }
+        stage('Structure - TXT to XLS') {
+          steps {
+            echo 'Text structured to XLS'
+          }
+        }
       }
     }
   }
